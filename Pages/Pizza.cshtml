@@ -1,0 +1,56 @@
+﻿@page
+@model RazorPagesPizza.Pages.PizzaModel
+@{
+    ViewData["Title"] = "CRUD - Pizza";
+}
+@using RazorPagesPizza.Models
+
+<h1>CRUD Simples - Pizza 🍕</h1>
+<form method="post" class="card p-3">
+    <div class="row">
+        <div asp-validation-summary="All"></div>
+    </div>
+    <div class="form-group mb-0 align-middle">
+        <label asp-for="NewPizza.Name">Nome</label>
+        <input type="text" asp-for="NewPizza.Name" class="mr-5">
+        <label asp-for="NewPizza.Size">Tamanho</label>
+        <select asp-for="NewPizza.Size" asp-items="Html.GetEnumSelectList<PizzaSize>()" class="mr-5"></select>
+        <label asp-for="NewPizza.Price">Preço</label>
+        <input asp-for="NewPizza.Price" class="mr-5" />
+        <label asp-for="NewPizza.ContainsGluten">Contém Gluten</label>
+        <input type="checkbox" checked asp-for="NewPizza.ContainsGluten" class="mr-5">
+        <button class="btn btn-primary">Adicionar</button>
+    </div>
+</form>
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Tamanho</th>
+            <th scope="col">Contém Gluten</th>
+            <th scope="col">Ações</th>@* Ações *@
+        </tr>
+    </thead>
+    @foreach (var pizza in Model.pizzas)
+    {
+        <tr id="pizza_@pizza.Id">
+            <td>@pizza.Name</td>
+            <td>@($"{pizza.Price:C}")</td>
+            <td>@pizza.Size</td>
+            <td>@(pizza.ContainsGluten ? "Sim" : "Não")</td>
+            <td>
+                <form method="post" asp-page-handler="Delete" asp-route-id="@pizza.Id">
+                    <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                </form>
+                <form method="post" asp-page-handler="Update" asp-route-id="@pizza.Id">
+                    <button class="btn btn-primary" ><i class="fa fa-edit"></i></button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+@{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
