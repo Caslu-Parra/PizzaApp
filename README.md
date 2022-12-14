@@ -1,3 +1,2 @@
 # PizzaApp
-Neste brunch seguimos passo a passo o curso 'Criar uma API Web com os controladores do ASP.NET Core', sendo ele uma continuação dos cursos de aprendizagem da Microsoft, porém agora focado em Web API. 
-Curso disponível em -> https://learn.microsoft.com/pt-br/training/modules/build-web-api-aspnet-core/
+Este é um website que foi desenvolvido seguindo o passo a passo do curso 'Criar uma interface do usuário Web com o ASP.NET Core', disponível em -> http://tiny.cc/w102vz, com a intenção de me introduzir a tecnologia ASP.NET e solidificar o conhecimento na linguagem C#.
