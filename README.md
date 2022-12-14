@@ -1,2 +1,2 @@
-# asp-pizza
- 
+# PizzaApp
+Este é um website que foi desenvolvido seguindo o passo a passo do curso 'Criar uma interface do usuário Web com o ASP.NET Core', disponível em -> http://tiny.cc/w102vz, com a intenção de me introduzir a tecnologia ASP.NET e solidificar o conhecimento na linguagem C#.
